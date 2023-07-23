@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng kí</title>
+    <style>
+        form {
+            margin-left: 650px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>Đăng kí</h1>
+<form action="/student/save" method="POST" th:object="${student}" enctype="multipart/form-data">
+    <input th:field="*{sid}" type="text" hidden>
+    <div>
+        <label for="name">Full Name:</label>
+        <input th:field="*{sname}" type="text" id="name" placeholder="Your Name">
+        <p th:if="${#fields.hasErrors('sname')}" th:errors="*{sname}"></p>
+    </div>
+    <br>
+    <div>
+        <label for="birthday">Birthday:</label>
+        <input th:field="*{birthday}" type="date" id="birthday">
+    </div>
+    <br>
+    <div>
+        <label for="address">Address:</label>
+        <select th:field="*{address.aid}" id="address">
+            <option value="1">HN</option>
+            <option value="2">HCM</option>
+            <option value="3">VP</option>
+        </select>
+    </div>
+    <br>
+    <div>
+        <label for="phone">Phone:</label>
+        <input th:field="*{phone}" type="text" id="phone" placeholder="Phone">
+    </div>
+
+    <div>
+        <label for="avatar">Avatar:</label>
+        <input type="file" name="file" id="avatar">
+    </div>
+    <br>
+    <button type="submit">Dang ky</button>
+
+</form>
+</body>
+</html>

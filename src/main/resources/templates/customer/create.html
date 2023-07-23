@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<h2>Create Customer</h2>
+
+<form action="/customer/save" method="post" th:object="${cus}">
+
+    <input type="text" th:field="*{cusId}" hidden>
+
+    <label for="cusname">Customer Name:</label><br>
+    <input type="text" id="cusname" th:field="*{cusName}"><br><br>
+
+    <label for="birthday">Birth Day:</label><br>
+    <input type="date" id="birthday" th:field="*{birthDay}"><br><br>
+
+    <label for="phone">Phone:</label><br>
+    <input type="text" id="phone" th:field="*{phone}"><br><br>
+
+    <label for="aId">Address Id:</label><br>
+    <input type="text" id="aId" th:field="*{aId}"><br><br>
+
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
+

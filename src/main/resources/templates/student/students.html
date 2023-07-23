@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <script th:src="@{/js/bootstrap.min.css}"></script>
+    <script th:src="@{/jquery/jquery-3.7.0.min.js}"></script>
+</head>
+<body>
+<div th:insert="~{default/fragment::nav}"></div>
+<a th:href="@{/student/register}">create</a>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Birthday</th>
+        <th scope="col">Address</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Province</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="st: ${student}">
+        <td th:text="${st.sid}"></td>
+        <td th:text="${st.sname}"></td>
+        <td th:text="${st.birthday}"></td>
+        <td th:text="${st.aid}"></td>
+        <td th:text="${st.phone}"></td>
+        <td th:text="${st.province}"></td>
+        <td><a th:href="@{/student/update/{id}(id=${st.sid})}">update</a></td>
+        <td><a th:href="@{/product/delete/{id}(id=${st.sid})}">delete</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

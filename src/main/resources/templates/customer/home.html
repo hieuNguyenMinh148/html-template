@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Customer</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+Hello customer
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Customer Name</th>
+        <th>Birth Day</th>
+        <th>Phone</th>
+        <th>Address ID</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="a : ${list}">
+        <td th:text="${a.cusId}"></td>
+        <td th:text="${a.cusName}"></td>
+        <td th:text="${a.birthDay}"></td>
+        <td th:text="${a.phone}"></td>
+        <td th:text="${a.aId}"></td>
+        <td><a th:href="@{/customer/update/{cusId}(cusId=${a.cusId})}"> update </a></td>
+        <td><a th:href="@{/customer/delete/{cusId}(cusId=${a.cusId})}"> delete </a></td>
+    </tr>
+    </tbody>
+</table>
+
+<br>
+<a href="customer/create">Create</a>
+</body>
+</html>
