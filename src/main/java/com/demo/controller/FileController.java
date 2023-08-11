@@ -19,6 +19,8 @@ public class FileController {
     @GetMapping("/get-file/{uid}")
     public ResponseEntity<?> downloadFile(@PathVariable int uid){
         MyFile myFile = service.findByUid(uid);
-        return ResponseEntity.status(200).contentType(MediaType.parseMediaType(myFile.getContentType())).body(myFile.getContent());
+        return ResponseEntity.status(200).contentType(MediaType.parseMediaType(myFile.getContentType()))
+                .body(myFile.getContent());
+
     }
 }
